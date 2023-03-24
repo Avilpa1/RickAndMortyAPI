@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +9,87 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(39, 43, 51);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.w-160 {
+  width: 44rem;
+}
+
+.character-img {
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.container {
+  position: relative;
+  background-color: rgb(60, 62, 68);;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  right: 0;
+  background-color: hsla(0, 0%, 43%, 0.742);
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  opacity: 0;
+  transition: .5s ease-out;
+  border-radius: 0.5rem;
+}
+
+.container:hover .overlay {
+  width: 100%;
+  left: 0;
+  padding: 0.75rem;
+  opacity: 1;
+}
+
+.text {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.status-icon {
+  height: 0.5rem;
+  width: 0.5rem;
+  margin-right: 0.375rem;
+  background: rgb(103, 103, 103);
+  border-radius: 50%
+}
+
+.listItem:hover .listOverlay {
+  opacity: 1;
+}
+
+.listOverlay {
+  position: absolute;
+  background-color: rgba(30, 30, 30, 0.621);
+  @apply w-32 h-32 rounded-lg;
+  transition: .2s ease-out;
+  opacity: 0;
+}
+
+button {
+  margin: 0.5rem 0;
+  padding: 0.5rem 2rem;
+  width: 8rem;
+  background-color: slategray;
+  color: white;
+  border-radius: 10px;
+}
+
+.control-btn {
+
 }
