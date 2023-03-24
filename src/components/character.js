@@ -15,7 +15,7 @@ function Character() {
       if (!isPaused) {
         getData()
       }
-    }, 5000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [isPaused, characterList]);
 
@@ -24,7 +24,10 @@ function Character() {
       axios.get(`https://rickandmortyapi.com/api/character/${randomCharacterId}`).then((res) => {
         setCharacter(res?.data);
         handleAdd(res?.data)
-      });
+      }).catch((err) => {
+        alert('An error occured')
+      })
+      ;
   };
   
   function handleAdd(data) {
